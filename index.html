@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple music playlist application</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="heading">Music playlist app</h1>
+      </header>
+      <main>
+        <section aria-labelledby="music-library-container">
+          <h2 class="heading">Music library</h2>
+          <div id="library-container"></div>
+        </section>
+        <section>
+          <h2 class="heading">Playlists</h2>
+          <div class="create-playlist">
+            <label for="playlist-name">Playlist name:</label>
+            <input
+              type="text"
+              id="playlist-name"
+              placeholder="Enter playlist name" />
+            <button id="create-playlist-btn">Create playlist</button>
+          </div>
+          <div id="playlist-container"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
