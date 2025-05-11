@@ -36,4 +36,14 @@ export default class PlaylistsView extends View {
             }
         });
     }
+
+    bindSelectPlaylist(handler) {
+        this._parentElement.addEventListener('click', event => {
+            const li = event.target.closest('li');
+            if (li && !event.target.closest('button')) {
+                const playlistId = parseInt(li.dataset.id);
+                handler(playlistId);
+            }
+        });
+    }
 }
