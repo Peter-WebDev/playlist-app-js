@@ -1,4 +1,4 @@
-class View {
+export default class View {
     _parentElement = undefined
     _data;
 
