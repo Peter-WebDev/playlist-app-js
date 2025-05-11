@@ -27,4 +27,13 @@ export default class PlaylistsView extends View {
     clearPlaylistNameInput() {
         this._playlistNameInput.value = '';
     }
+
+    bindCreatePlaylist(handler) {
+        this._createPlaylistButton.addEventListener('click', () => {
+            const name = this._playlistNameInput.value.trim();
+            if (name) {
+                handler(name);
+            }
+        });
+    }
 }
