@@ -1,4 +1,4 @@
-import View from "./View";
+import View from './View';
 
 export default class PlaylistsView extends View {
     constructor() {
@@ -7,7 +7,7 @@ export default class PlaylistsView extends View {
         this._playlistNameInput = document.getElementById('playlist-name');
         this._createPlaylistButton = document.getElementById('create-playlist');
     }
-
+    
     _generateHtml() {
         return `
             ${this._data.playlists.map(playlist => `
@@ -19,15 +19,15 @@ export default class PlaylistsView extends View {
             `).join('')}
         `;
     }
-
+    
     updateCurrentPlaylist(playlistName) {
         this._currentPlaylistElement.textContent = playlistName || 'Ingen vald';
     }
-
+    
     clearPlaylistNameInput() {
         this._playlistNameInput.value = '';
     }
-
+    
     bindCreatePlaylist(handler) {
         this._createPlaylistButton.addEventListener('click', () => {
             const name = this._playlistNameInput.value.trim();
@@ -36,7 +36,7 @@ export default class PlaylistsView extends View {
             }
         });
     }
-
+    
     bindSelectPlaylist(handler) {
         this._parentElement.addEventListener('click', event => {
             const li = event.target.closest('li');
@@ -46,7 +46,7 @@ export default class PlaylistsView extends View {
             }
         });
     }
-
+    
     bindDeletePlaylist(handler) {
         this._parentElement.addEventListener('click', event => {
             const button = event.target.closest('button[data-action="remove-playlist"]');
