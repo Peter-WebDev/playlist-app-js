@@ -1,3 +1,5 @@
+import mockData from "../data";
+
 export const state = {
     songs: [],
     playslists: [],
@@ -55,4 +57,29 @@ const musicModel = {
             state.currentPlaylistId = state.playslists.length > 0 ? state.playslists[0].id : null;
         }
     },
-}
+
+    addSongToPlaylist(playlistId, songId) {
+        const playlist = state.playslists.find(p => p.id === playlistId)
+        if (!playlist) return false;
+
+        if (!playlist.song.includes(songId)) {
+            playlist.songs.push(songId);
+        }
+        return true;
+    },
+
+    removeSongFromPlaylist(playlistId, songId) {
+        const playlist = state.playslists.find(p => p.id === playlistId)
+        if (!playlist) return false;
+
+        playlist.songs = playlist.songs.filter(id => id !== songId);
+        return true;
+    },
+
+    isSongInPlaylist(playlistId, songId) {
+        const playlist = state.playslists.find(p => p.id === playlistId);
+        return playlist ? playlist.songs.includes(songId) : false;
+    }
+};
+
+export default musicModel;
