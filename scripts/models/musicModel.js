@@ -36,4 +36,23 @@ const musicModel = {
             state.songs.find(song => song.id === songId)
         ).filter(Boolean);
     },
+
+    createPlaylist(name) {
+        const newPlaylist = {
+            id: Date.now(),
+            name: name,
+            songs: []
+        };
+
+        state.playslists.push(newPlaylist);
+        return newPlaylist;
+    },
+
+    deletePlaylist(playlistId) {
+        state.playslists = state.playslists.filter(playlist => playlist.id !== playlistId);
+
+        if (state.currentPlaylistId === playlistId) {
+            state.currentPlaylistId = state.playslists.length > 0 ? state.playslists[0].id : null;
+        }
+    },
 }
