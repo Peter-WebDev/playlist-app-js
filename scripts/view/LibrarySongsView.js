@@ -29,4 +29,15 @@ export default class LibrarySongsView extends View {
             }).join('')}
         `;
     }
+
+    bindAddSongToPlaylist(handler) {
+        this._parentElement.addEventListener('click', event => {
+            const button = event.target.closest('button[data-action="add-song"]');
+            if (button && !button.disabled) {
+                const li = button.closest('li');
+                const songId = parseInt(li.dataset.id);
+                handler(songId);
+            }
+        });
+    }
 }
