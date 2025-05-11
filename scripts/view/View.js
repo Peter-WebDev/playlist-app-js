@@ -8,6 +8,9 @@ class View {
 
     render(data) {
         this._data = data;
+        this._clearHtml();
+        const html = this._generateHtml();
+        this._parentElement.appendChild(html);
     }
 
     _clearHtml() {
