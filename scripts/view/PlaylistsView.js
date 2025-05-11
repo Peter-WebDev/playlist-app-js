@@ -19,4 +19,12 @@ export default class PlaylistsView extends View {
             `).join('')}
         `;
     }
+
+    updateCurrentPlaylist(playlistName) {
+        this._currentPlaylistElement.textContent = playlistName || 'Ingen vald';
+    }
+
+    clearPlaylistNameInput() {
+        this._playlistNameInput.value = '';
+    }
 }
