@@ -46,4 +46,15 @@ export default class PlaylistsView extends View {
             }
         });
     }
+
+    bindDeletePlaylist(handler) {
+        this._parentElement.addEventListener('click', event => {
+            const button = event.target.closest('button[data-action="remove-playlist"]');
+            if (button) {
+                const li = button.closest('li');
+                const playlistId = parseInt(li.dataset.id);
+                handler(playlistId);
+            }
+        });
+    }
 }
