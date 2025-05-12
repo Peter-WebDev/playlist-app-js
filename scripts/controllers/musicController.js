@@ -1,7 +1,7 @@
-import musicModel from '../models/musicModel';
-import LibrarySongsView from '../view/LibrarySongsView';
-import PlaylistSongsView from '../view/PlaylistSongsView';
-import PlaylistView from '../view/PlaylistsView';
+import musicModel from '../models/musicModel.js';
+import LibrarySongsView from '../view/LibrarySongsView.js';
+import PlaylistSongsView from '../view/PlaylistSongsView.js';
+import PlaylistView from '../view/PlaylistsView.js';
 
 const musicController = {
     init() {

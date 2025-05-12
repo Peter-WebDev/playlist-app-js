@@ -1,4 +1,4 @@
-import musicController from './scripts/controllers/musicController';
+import musicController from './scripts/controllers/musicController.js';
 
 const initApp = () => {
     musicController.init();
