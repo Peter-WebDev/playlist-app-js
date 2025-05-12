@@ -18,7 +18,7 @@ export default class PlaylistSongsView extends View {
                         <div class="song-artist">Artist: ${song.artist}</div>
                         <div class="song-genre">Genre: ${song.genre}</div>
                     </div>
-                    <button class="remove-btn" data-action="remove-song">Ta bort låt</button>
+                    <button class="remove-btn" data-action="remove-song">Remove</button>
                 </li>
             `).join('')}
         `;
