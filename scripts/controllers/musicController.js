@@ -16,10 +16,41 @@ const musicController = {
         this.playlistView.bindDeletePlaylist(this.handleDeletePlaylist.bind(this));
         this.librarySongsView.bindAddSongToPlaylist(this.handleAddSongToPlaylist.bind(this));
         this.playlistSongsView.bindRemoveSongFromPlaylist(this.handleRemoveSongFromPlaylist.bind(this));
+
+        this.onPlaylistChange();
     },
 
     onPlaylistChange() {
-        // Code
+        const playlists = musicModel.getAllPlaylists();
+        const currentPlaylist = musicModel.getCurrentPlaylist();
+        const currentPlaylistId = currentPlaylist ? currentPlaylist.id : null;
+
+        this.playlistView.render({
+            playlists,
+            currentPlaylistId
+        });
+
+        this.playlistView.updateCurrentPlaylist(currentPlaylist ? currentPlaylist.name : null);
+
+        if (currentPlaylistId) {
+            const playlistSongs = musicModel.getPlayslistSongs(currentPlaylistId);
+            this.playlistSongsView.render(playlistSongs);
+
+            const playlistSongIds = currentPlaylist.songs;
+
+            this.librarSongsView.render({
+                songs: musicModel.getAllSongs(),
+                currentPlaylistId,
+                playlistSongIds
+            });
+        } else {
+            this.playlistSongsView.render([]);
+            this.librarySongsView.render({
+                songs: musicModel.getAllSongs(),
+                currentPlaylistId: null,
+                playlistSongIds: []
+            });
+        }
     },
 
     handleCreatePlaylist(name) {
