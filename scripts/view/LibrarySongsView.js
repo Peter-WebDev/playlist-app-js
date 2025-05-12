@@ -14,15 +14,15 @@ export default class LibrarySongsView extends View {
 
                 return `
                     <li data-id='${song.id}'>
-                        <div class='song-details>
-                            <div class='song-title'>${song.title}</div>
+                        <div class='song-details'>
+                            <h3 class='song-title'>${song.title}</h3>
                             <div class='song-artist'>Artist: ${song.artist}</div>
                             <div class='song-genre'>Genre: ${song.genre}</div>
                         </div>
                         <button class="${isInPlaylist ? 'disabled-btn' : 'add-btn'}" 
                                 data-action="add-song" 
                                 ${isInPlaylist ? 'disabled' : ''}>
-                            ${isInPlaylist ? 'Redan tillagd' : 'Lägg till i spellista'}
+                            ${isInPlaylist ? 'Added' : 'Add'}
                         </button>
                     </li>
                 `;

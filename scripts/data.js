@@ -34,10 +34,28 @@ const mockData = {
             id: 6,
             title: "Good Vibrations",
             artist: "The Beach Boys",
-            genre: "Pop"
+            genre: "Surf"
+        },
+        {
+            id: 7,
+            title: "Purple Rain",
+            artist: "Prince",
+            genre: "Pop Rock"
+        },
+        {
+            id: 8,
+            title: "Sweet Child O' Mine",
+            artist: "Guns N' Roses",
+            genre: "Hard Rock"
+        },
+        {
+            id: 9,
+            title: "Hotel California",
+            artist: "Eagles",
+            genre: "Rock"
         }
     ],
-    
+   
     playlists: [
         {
             id: 1,
