@@ -10,6 +10,12 @@ const musicController = {
         this.playlistView = new PlaylistView();
         this.playlistSongsView = new PlaylistSongsView();
         this.librarySongsView = new LibrarySongsView();
+
+        this.playlistView.bindCreatePlaylist(this.handleCreatePlaylist.bind(this));
+        this.playlistView.bindSelectPlaylist(this.handleSelectPlaylist.bind(this));
+        this.playlistView.bindDeletePlaylist(this.handleDeletePlaylist.bind(this));
+        this.librarySongsView.bindAddSongToPlaylist(this.handleAddSongToPlaylist.bind(this));
+        this.playlistSongsView.bindRemoveSongFromPlaylist(this.handleRemoveSongFromPlaylist.bind(this));
     },
 
     onPlaylistChange() {
