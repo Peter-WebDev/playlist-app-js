@@ -10,7 +10,7 @@ export default class View {
         this._data = data;
         this._clearHtml();
         const html = this._generateHtml();
-        this._parentElement.appendChild(html);
+        this._parentElement.innerHTML = html;
     }
 
     _clearHtml() {

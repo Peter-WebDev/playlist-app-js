@@ -1,4 +1,4 @@
-import mockData from "../data";
+import mockData from "../data.js";
 
 export const state = {
     songs: [],
