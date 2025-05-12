@@ -11,10 +11,10 @@ export default class PlaylistsView extends View {
     _generateHtml() {
         return `
             ${this._data.playlists.map(playlist => `
-                <li class="playlist-item ${playlist.id === this._data.currentPlaylistId ? 'selected' : ''}" 
-                    data-id="${playlist.id}">
-                    <span>${playlist.name}</span>
-                    <button class="remove-btn" data-action="remove-playlist">Remove</button>
+                <li class='playlist-item ${playlist.id === this._data.currentPlaylistId ? 'selected' : ''}' 
+                    data-id='${playlist.id}'>
+                    <span class='playlist-name'>${playlist.name}</span>
+                    <button class='remove-btn' data-action='remove-playlist'>Remove</button>
                 </li>
             `).join('')}
         `;
