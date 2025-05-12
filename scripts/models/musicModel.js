@@ -62,7 +62,7 @@ const musicModel = {
         const playlist = state.playslists.find(p => p.id === playlistId)
         if (!playlist) return false;
 
-        if (!playlist.song.includes(songId)) {
+        if (!playlist.songs.includes(songId)) {
             playlist.songs.push(songId);
         }
         return true;
