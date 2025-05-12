@@ -30,6 +30,9 @@
   --color-blue-primary: #2196f3;
   --color-blue-hover: #0b7dda;
   --color-blue-light: #e3f2fd;
+  --color-green-primary: #7fa81b;
+  --color-green-hover: #699313;
+  --color-green-light: #e1e8e5;
   --color-gray-disabled: #cccccc;
 }
 
@@ -55,25 +58,23 @@ html {
 
 body {
   font-family: system-ui, sans-serif;
-  background-color: var(--background-light);
   color: var(--text-light);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100svh;
+  height: 100svh;
 }
 
 .container {
-  width: min(100% - 2rem, 55rem);
-  background-color: var(--container-light);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-inline: auto;
+  background-color: var(--background-light);
 }
 
 .container,
 section {
-  border-radius: 0.25em;
   padding: 1em;
+}
+
+section {
+  background-color: var(--container-light);
+  border-radius: 0.25em;
+  border: 0.05em solid var(--border-dark);
 }
 
 header {
@@ -84,16 +85,18 @@ header {
 
 .app-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
   gap: 1rem;
 }
 
 h1 {
   font-size: 1.75rem;
+  font-weight: 900;
 }
 
 h2 {
   font-size: 1.25rem;
+  font-weight: 600;
 }
 
 h1,
@@ -111,6 +114,25 @@ h2 {
   flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
+}
+
+.playlist {
+  overflow-y: auto;
+  max-height: 74svh;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-green-primary);
+  border-radius: 5px;
 }
 
 label {
@@ -172,10 +194,10 @@ ul {
 }
 
 li {
-  padding: 10px;
-  margin-bottom: 5px;
+  padding: 0.75em;
+  margin-bottom: 0.25em;
   border-radius: 4px;
-  background-color: var(--background-light);
+  background-color: var(--container-light);
   border: 1px solid var(--border-light);
   display: flex;
   justify-content: space-between;
@@ -183,24 +205,33 @@ li {
 }
 
 li.selected {
-  background-color: var(--color-blue-light);
-  border-color: var(--color-blue-primary);
+  background-color: var(--container-light);
+  border-color: var(--color-green-primary);
+  border-width: 0.2em;
 }
 
 .song-details {
   flex: 1;
 }
 
+.playlist-name,
 .song-title {
-  font-weight: bold;
+  font-weight: 600;
 }
 
+.playlist-name,
 .song-title,
 .song-artist,
 .song-genre {
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--heading-light);
-  margin-top: 2px;
+}
+
+.song-artist,
+.song-genre {
+  font-size: 0.625rem;
+  color: var(--heading-light);
+  margin-top: 0.1em;
 }
 
 .playlist-item {
@@ -210,8 +241,9 @@ li.selected {
 }
 
 #current-playlist {
-  color: var(--color-blue-primary);
+  color: var(--color-green-primary);
   font-style: italic;
+  font-weight: 400;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -245,6 +277,28 @@ li.selected {
     border: 1px solid var(--input-border-dark);
   }
   label {
+    color: var(--text-dark);
+  }
+  li {
+    padding: 0.75em;
+    margin-bottom: 0.25em;
+    border-radius: 4px;
+    background-color: var(--container-dark);
+    border: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  li.selected {
+    background-color: var(--container-dark);
+    border-color: var(--color-green-primary);
+    border-width: 0.2em;
+  }
+  .playlist-name,
+  .song-title,
+  .song-artist,
+  .song-genre {
     color: var(--text-dark);
   }
 }
