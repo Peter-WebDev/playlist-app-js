@@ -262,6 +262,7 @@ li.selected {
 
   section {
     background-color: var(--background-dark);
+    border: none;
   }
 
   button {
@@ -284,7 +285,7 @@ li.selected {
     margin-bottom: 0.25em;
     border-radius: 4px;
     background-color: var(--container-dark);
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
