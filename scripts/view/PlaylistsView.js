@@ -14,7 +14,7 @@ export default class PlaylistsView extends View {
                 <li class="playlist-item ${playlist.id === this._data.currentPlaylistId ? 'selected' : ''}" 
                     data-id="${playlist.id}">
                     <span>${playlist.name}</span>
-                    <button class="remove-btn" data-action="remove-playlist">Ta bort</button>
+                    <button class="remove-btn" data-action="remove-playlist">Remove</button>
                 </li>
             `).join('')}
         `;
