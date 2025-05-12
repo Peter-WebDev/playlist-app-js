@@ -38,7 +38,7 @@ const musicController = {
 
             const playlistSongIds = currentPlaylist.songs;
 
-            this.librarSongsView.render({
+            this.librarySongsView.render({
                 songs: musicModel.getAllSongs(),
                 currentPlaylistId,
                 playlistSongIds
