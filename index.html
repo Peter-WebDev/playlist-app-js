@@ -12,22 +12,29 @@
       <header>
         <h1 class="heading">Music playlist app</h1>
       </header>
-      <main>
-        <section aria-labelledby="music-library-container">
-          <h2 class="heading">Music library</h2>
-          <div id="library-container"></div>
+      <main class="app-container">
+        <section aria-labelledby="playlists-heading" class="playlist-section">
+          <h2 class="heading">My playlists</h2>
+          <form class="add-playlist">
+            <label for="playlist-name" class="sr-only">Playlist name</label>
+            <input type="text" id="playlist-name" />
+            <button type="submit" id="create-playlist">Create playlist</button>
+          </form>
+          <ul id="playlists"></ul>
         </section>
-        <section>
-          <h2 class="heading">Playlists</h2>
-          <div class="create-playlist">
-            <label for="playlist-name">Playlist name:</label>
-            <input
-              type="text"
-              id="playlist-name"
-              placeholder="Enter playlist name" />
-            <button id="create-playlist-btn">Create playlist</button>
-          </div>
-          <div id="playlist-container"></div>
+        <section
+          aria-labelledby="playlist-songs-heading"
+          class="playlist-songs-section">
+          <h2 class="heading">
+            Songs in playlist: <span id="current-playlist">None selected</span>
+          </h2>
+          <ul id="playlist-songs"></ul>
+        </section>
+        <section
+          aria-labelledby="library-songs-heading"
+          class="library-section">
+          <h2 class="heading">Available songs</h2>
+          <ul id="library-songs"></ul>
         </section>
       </main>
     </div>

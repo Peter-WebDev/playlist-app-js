@@ -57,12 +57,15 @@ body {
 
 .container {
   width: min(100% - 2rem, 55rem);
-  padding: 1.5rem;
   background-color: var(--container-light);
-  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  gap: 1.5rem;
-  margin: 0 auto;
+  margin-inline: auto;
+}
+
+.container,
+section {
+  border-radius: 0.25em;
+  padding: 1em;
 }
 
 header {
@@ -71,10 +74,10 @@ header {
   grid-column: 1 / -1;
 }
 
-main {
+.app-container {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 1rem;
 }
 
 h1 {
@@ -95,7 +98,7 @@ h2 {
   margin-bottom: 0.75rem;
 }
 
-.create-playlist {
+.add-playlist {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -103,8 +106,6 @@ h2 {
 }
 
 label {
-  font-weight: bold;
-  text-align: left;
   color: var(--text-light);
 }
 
@@ -132,12 +133,50 @@ button:hover {
   background-color: var(--button-hover-light);
 }
 
-#library-container,
-#playlist-container {
-  padding: 1rem;
-  border: 1px solid var(--border-light);
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 10px;
+  margin-bottom: 5px;
   border-radius: 4px;
-  background-color: var(--container-light);
+  background-color: white;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li.selected {
+  background-color: #e3f2fd;
+  border-color: #2196f3;
+}
+
+.song-details {
+  flex: 1;
+}
+
+.song-title {
+  font-weight: bold;
+}
+
+.song-artist,
+.song-genre {
+  font-size: 1rem;
+  color: var(--heading-light);
+  margin-top: 2px;
+}
+
+.playlist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#current-playlist {
+  color: #2196f3;
+  font-style: italic;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -153,6 +192,11 @@ button:hover {
     background-color: var(--container-dark);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
+
+  section {
+    background-color: var(--background-dark);
+  }
+
   button {
     background-color: var(--button-background-dark);
     color: var(--button-text-dark);
@@ -166,27 +210,7 @@ button:hover {
     color: var(--text-dark);
     border: 1px solid var(--input-border-dark);
   }
-  #library-container,
-  #playlist-container {
-    background-color: var(--container-dark);
-    border-color: var(--border-dark);
-  }
   label {
     color: var(--text-dark);
-  }
-}
-
-@media (min-width: 768px) {
-  main {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
-
-  .heading {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  h1.heading {
-    font-size: 2rem;
   }
 }
