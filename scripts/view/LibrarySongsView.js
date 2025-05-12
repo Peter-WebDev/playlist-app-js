@@ -14,7 +14,7 @@ export default class LibrarySongsView extends View {
 
                 return `
                     <li data-id='${song.id}'>
-                        <div class='song-details>
+                        <div class='song-details'>
                             <div class='song-title'>${song.title}</div>
                             <div class='song-artist'>Artist: ${song.artist}</div>
                             <div class='song-genre'>Genre: ${song.genre}</div>
@@ -22,7 +22,7 @@ export default class LibrarySongsView extends View {
                         <button class="${isInPlaylist ? 'disabled-btn' : 'add-btn'}" 
                                 data-action="add-song" 
                                 ${isInPlaylist ? 'disabled' : ''}>
-                            ${isInPlaylist ? 'Redan tillagd' : 'Lägg till i spellista'}
+                            ${isInPlaylist ? 'Added' : 'Add'}
                         </button>
                     </li>
                 `;
