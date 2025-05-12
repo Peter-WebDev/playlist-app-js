@@ -31,6 +31,22 @@ const musicController = {
         musicModel.deletePlaylist(playlistId);
         this.onPlaylistChange();
     },
+
+    handleAddSongToPlaylist(songId) {
+        const currentPlaylist = musicModel.getCurrentPlaylist();
+        if (currentPlaylist) {
+            musicModel.addSongToPlaylist(currentPlaylist.id, songId);
+            this.onPlaylistChange();
+        }
+    },
+
+    handleRemoveSongFromPlaylist(songId) {
+        const currentPlaylist = musicModel.getCurrentPlaylist();
+        if (currentPlaylist) {
+            musicModel.removeSongFromPlaylist(currentPlaylist.id, songId);
+            this.onPlaylistChange();
+        }
+    }
 }
 
 export default musicController;
