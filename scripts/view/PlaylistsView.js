@@ -13,7 +13,7 @@ export default class PlaylistsView extends View {
             ${this._data.playlists.map(playlist => `
                 <li class='playlist-item ${playlist.id === this._data.currentPlaylistId ? 'selected' : ''}' 
                     data-id='${playlist.id}'>
-                    <span class='playlist-name'>${playlist.name}</span>
+                    <h3 class='playlist-name'>${playlist.name}</h3>
                     <button class='remove-btn' data-action='remove-playlist'>Remove</button>
                 </li>
             `).join('')}
