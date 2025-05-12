@@ -15,7 +15,7 @@ export default class LibrarySongsView extends View {
                 return `
                     <li data-id='${song.id}'>
                         <div class='song-details'>
-                            <div class='song-title'>${song.title}</div>
+                            <h3 class='song-title'>${song.title}</h3>
                             <div class='song-artist'>Artist: ${song.artist}</div>
                             <div class='song-genre'>Genre: ${song.genre}</div>
                         </div>
