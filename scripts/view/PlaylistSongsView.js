@@ -7,7 +7,7 @@ export default class PlaylistSongsView extends View {
     
     _generateHtml() {
         if (this._data.length === 0) {
-            return `<li>Inga låtar i denna spellista</li>`;
+            return `<li>Add songs to the playlist</li>`;
         }
         
         return `
