@@ -1,19 +1,19 @@
 import musicModel from '../models/musicModel.js';
 import LibrarySongsView from '../view/LibrarySongsView.js';
 import PlaylistSongsView from '../view/PlaylistSongsView.js';
-import PlaylistView from '../view/PlaylistsView.js';
+import PlaylistsView from '../view/PlaylistsView.js';
 
 const musicController = {
     init() {
         musicModel.initialize();
 
-        this.playlistView = new PlaylistView();
+        this.playlistsView = new PlaylistsView();
         this.playlistSongsView = new PlaylistSongsView();
         this.librarySongsView = new LibrarySongsView();
 
-        this.playlistView.bindCreatePlaylist(this.handleCreatePlaylist.bind(this));
-        this.playlistView.bindSelectPlaylist(this.handleSelectPlaylist.bind(this));
-        this.playlistView.bindDeletePlaylist(this.handleDeletePlaylist.bind(this));
+        this.playlistsView.bindCreatePlaylist(this.handleCreatePlaylist.bind(this));
+        this.playlistsView.bindSelectPlaylist(this.handleSelectPlaylist.bind(this));
+        this.playlistsView.bindDeletePlaylist(this.handleDeletePlaylist.bind(this));
         this.librarySongsView.bindAddSongToPlaylist(this.handleAddSongToPlaylist.bind(this));
         this.playlistSongsView.bindRemoveSongFromPlaylist(this.handleRemoveSongFromPlaylist.bind(this));
 
@@ -25,15 +25,15 @@ const musicController = {
         const currentPlaylist = musicModel.getCurrentPlaylist();
         const currentPlaylistId = currentPlaylist ? currentPlaylist.id : null;
 
-        this.playlistView.render({
+        this.playlistsView.render({
             playlists,
             currentPlaylistId
         });
 
-        this.playlistView.updateCurrentPlaylist(currentPlaylist ? currentPlaylist.name : null);
+        this.playlistsView.updateCurrentPlaylist(currentPlaylist ? currentPlaylist.name : null);
 
         if (currentPlaylistId) {
-            const playlistSongs = musicModel.getPlayslistSongs(currentPlaylistId);
+            const playlistSongs = musicModel.getPlaylistSongs(currentPlaylistId);
             this.playlistSongsView.render(playlistSongs);
 
             const playlistSongIds = currentPlaylist.songs;
@@ -55,7 +55,7 @@ const musicController = {
 
     handleCreatePlaylist(name) {
         musicModel.createPlaylist(name);
-        this.playlistView.clearPlaylistNameInput();
+        this.playlistsView.clearPlaylistNameInput();
         this.onPlaylistChange();
     },
 
