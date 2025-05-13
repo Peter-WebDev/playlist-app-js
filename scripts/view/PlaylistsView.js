@@ -14,14 +14,14 @@ export default class PlaylistsView extends View {
                 <li class='playlist-item ${playlist.id === this._data.currentPlaylistId ? 'selected' : ''}' 
                     data-id='${playlist.id}'>
                     <h3 class='playlist-name'>${playlist.name}</h3>
-                    <button class='remove-btn' data-action='remove-playlist'>Remove</button>
+                    <button class='remove-btn' data-action='remove-playlist'>Delete</button>
                 </li>
             `).join('')}
         `;
     }
     
     updateCurrentPlaylist(playlistName) {
-        this._currentPlaylistElement.textContent = playlistName || 'Ingen vald';
+        this._currentPlaylistElement.textContent = playlistName || 'None selected';
     }
     
     clearPlaylistNameInput() {
