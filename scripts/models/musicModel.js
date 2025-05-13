@@ -2,15 +2,15 @@ import mockData from "../data.js";
 
 export const state = {
     songs: [],
-    playslists: [],
+    playlists: [],
     currentPlaylistId: null
 };
 
 const musicModel = {
     initialize() {
         state.songs = mockData.songs;
-        state.playslists = mockData.playlists;
-        state.currentPlaylistId = state.playslists.length > 0 ? state.playslists[0].id : null;
+        state.playlists = mockData.playlists;
+        state.currentPlaylistId = state.playlists.length > 0 ? state.playlists[0].id : null;
     },
 
     getAllSongs() {
@@ -18,20 +18,20 @@ const musicModel = {
     },
 
     getAllPlaylists() {
-        return state.playslists
+        return state.playlists
     },
 
     getCurrentPlaylist() {
         if (!state.currentPlaylistId) return null;
-        return state.playslists.find(playlists => playlists.id === state.currentPlaylistId);
+        return state.playlists.find(playlists => playlists.id === state.currentPlaylistId);
     },
 
     setCurrentPlaylist(playlistId) {
         state.currentPlaylistId = playlistId;
     },
 
-    getPlayslistSongs(playlistId) {
-        const playlist = state.playslists.find(p => p.id === playlistId);
+    getPlaylistSongs(playlistId) {
+        const playlist = state.playlists.find(p => p.id === playlistId);
         if (!playlist) return [];
         
         return playlist.songs.map(songId =>
@@ -46,20 +46,20 @@ const musicModel = {
             songs: []
         };
 
-        state.playslists.push(newPlaylist);
+        state.playlists.push(newPlaylist);
         return newPlaylist;
     },
 
     deletePlaylist(playlistId) {
-        state.playslists = state.playslists.filter(playlist => playlist.id !== playlistId);
+        state.playlists = state.playlists.filter(playlist => playlist.id !== playlistId);
 
         if (state.currentPlaylistId === playlistId) {
-            state.currentPlaylistId = state.playslists.length > 0 ? state.playslists[0].id : null;
+            state.currentPlaylistId = state.playlists.length > 0 ? state.playlists[0].id : null;
         }
     },
 
     addSongToPlaylist(playlistId, songId) {
-        const playlist = state.playslists.find(p => p.id === playlistId)
+        const playlist = state.playlists.find(p => p.id === playlistId)
         if (!playlist) return false;
 
         if (!playlist.songs.includes(songId)) {
@@ -69,7 +69,7 @@ const musicModel = {
     },
 
     removeSongFromPlaylist(playlistId, songId) {
-        const playlist = state.playslists.find(p => p.id === playlistId)
+        const playlist = state.playlists.find(p => p.id === playlistId)
         if (!playlist) return false;
 
         playlist.songs = playlist.songs.filter(id => id !== songId);
@@ -77,7 +77,7 @@ const musicModel = {
     },
 
     isSongInPlaylist(playlistId, songId) {
-        const playlist = state.playslists.find(p => p.id === playlistId);
+        const playlist = state.playlists.find(p => p.id === playlistId);
         return playlist ? playlist.songs.includes(songId) : false;
     }
 };
