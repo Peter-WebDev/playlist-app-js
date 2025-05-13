@@ -1,4 +1,7 @@
 import mockData from "../data.js";
+import LocalStorage from '../services/localStorage.js';
+
+const storageService = new LocalStorage('music_data');
 
 export const state = {
     songs: [],
@@ -8,9 +11,18 @@ export const state = {
 
 const musicModel = {
     initialize() {
-        state.songs = mockData.songs;
-        state.playlists = mockData.playlists;
-        state.currentPlaylistId = state.playlists.length > 0 ? state.playlists[0].id : null;
+        const savedData = storageService.loadData();
+
+        if (savedData) {
+            state.songs = savedData.songs;
+            state.playlists = savedData.playlists;
+            state.currentPlaylistId = savedData.currentPlaylistId;            
+        } else {
+            state.songs = mockData.songs;
+            state.playlists = mockData.playlists;
+            state.currentPlaylistId = state.playlists.length > 0 ? state.playlists[0].id : null;
+        }
+
     },
 
     getAllSongs() {
@@ -79,6 +91,14 @@ const musicModel = {
     isSongInPlaylist(playlistId, songId) {
         const playlist = state.playlists.find(p => p.id === playlistId);
         return playlist ? playlist.songs.includes(songId) : false;
+    },
+
+    saveState() {
+        storageService.saveData({
+            songs: state.songs,
+            playlists: state.playlists,
+            currentPlaylistId: state.currentPlaylistId
+        });
     }
 };
 
