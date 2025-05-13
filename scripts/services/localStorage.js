@@ -1,4 +1,4 @@
-class LocalStorage {
+export default class LocalStorage {
     constructor(storageKey) {
         this.storageKey = storageKey;
     }
