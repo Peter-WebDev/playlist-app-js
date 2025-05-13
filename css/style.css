@@ -14,26 +14,26 @@
   --button-hover-light: #737373;
 
   /* Dark Theme */
-  --background-dark: #171717;
+  --background-dark: #131313;
   --text-dark: #e3e3e3;
   --heading-dark: #f2f2f2;
-  --container-dark: #262626;
+  --container-dark: #232323;
   --border-dark: #525252;
   --input-border-dark: #525252;
-  --button-background-dark: #525252;
+  --button-background-dark: #0c0c0c;
   --button-text-dark: #f0f0f0;
-  --button-hover-dark: #666666;
+  --button-hover-dark: #383838;
 
   /* Additional Color Variables */
-  --color-red-primary: #f44336;
-  --color-red-hover: #d32f2f;
-  --color-blue-primary: #2196f3;
-  --color-blue-hover: #0b7dda;
+  --color-red-primary: #68050b;
+  --color-red-hover: #920e10;
+  --color-blue-primary: #0857ae;
+  --color-blue-hover: #0b6ac4;
   --color-blue-light: #e3f2fd;
   --color-green-primary: #7fa81b;
   --color-green-hover: #699313;
   --color-green-light: #e1e8e5;
-  --color-gray-disabled: #cccccc;
+  --color-gray-disabled: #6c6768;
 }
 
 *,
