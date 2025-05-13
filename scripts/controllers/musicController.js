@@ -55,17 +55,20 @@ const musicController = {
 
     handleCreatePlaylist(name) {
         musicModel.createPlaylist(name);
+        musicModel.saveState();
         this.playlistsView.clearPlaylistNameInput();
         this.onPlaylistChange();
     },
 
     handleSelectPlaylist(playlistId) {
         musicModel.setCurrentPlaylist(playlistId);
+        musicModel.saveState();
         this.onPlaylistChange();
     },
 
     handleDeletePlaylist(playlistId) {
         musicModel.deletePlaylist(playlistId);
+        musicModel.saveState();
         this.onPlaylistChange();
     },
 
@@ -73,6 +76,7 @@ const musicController = {
         const currentPlaylist = musicModel.getCurrentPlaylist();
         if (currentPlaylist) {
             musicModel.addSongToPlaylist(currentPlaylist.id, songId);
+            musicModel.saveState();
             this.onPlaylistChange();
         }
     },
@@ -81,6 +85,7 @@ const musicController = {
         const currentPlaylist = musicModel.getCurrentPlaylist();
         if (currentPlaylist) {
             musicModel.removeSongFromPlaylist(currentPlaylist.id, songId);
+            musicModel.saveState();
             this.onPlaylistChange();
         }
     }
