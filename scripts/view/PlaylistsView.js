@@ -12,7 +12,7 @@ export default class PlaylistsView extends View {
         return `
             ${this._data.playlists.map(playlist => `
                 <li class='playlist-item ${playlist.id === this._data.currentPlaylistId ? 'selected' : ''}' 
-                    data-id='${playlist.id}'>
+                    data-id='${playlist.id}' tabindex=0>
                     <h3 class='playlist-name'>${playlist.name}</h3>
                     <button class='remove-btn' data-action='remove-playlist'>Delete</button>
                 </li>
@@ -45,6 +45,18 @@ export default class PlaylistsView extends View {
                 handler(playlistId);
             }
         });
+
+        this._parentElement.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                const li = event.target.closest('li');
+                if (li && !event.target.closest('button')) {
+                    const playlistId = parseInt(li.dataset.id);
+                    handler(playlistId);
+                    
+                    event.preventDefault();
+                }             
+            }
+        })
     }
     
     bindDeletePlaylist(handler) {
