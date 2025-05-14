@@ -52,14 +52,11 @@
   font: inherit;
 }
 
-html {
-  line-height: 1.5;
-}
-
 body {
   font-family: system-ui, sans-serif;
   color: var(--text-light);
-  height: 100svh;
+  display: grid;
+  min-height: 100svh;
 }
 
 .container {
@@ -75,12 +72,11 @@ section {
   background-color: var(--container-light);
   border-radius: 0.25em;
   border: 0.05em solid var(--border-dark);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header {
   text-align: center;
-  margin-bottom: 1.5rem;
-  grid-column: 1 / -1;
 }
 
 .app-container {
@@ -105,7 +101,6 @@ h2 {
 }
 
 .heading {
-  margin-top: 0;
   margin-bottom: 0.75rem;
 }
 
@@ -116,13 +111,17 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
+#playlists {
+  max-height: 52svh;
+}
+
 .playlist {
   overflow-y: auto;
-  max-height: 74svh;
+  max-height: 75svh;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 2px;
 }
 
 ::-webkit-scrollbar-track {
@@ -207,7 +206,7 @@ li {
 li.selected {
   background-color: var(--container-light);
   border-color: var(--color-green-primary);
-  border-width: 0.2em;
+  border-width: 0.075em;
 }
 
 .song-details {
@@ -241,7 +240,7 @@ li.selected {
 }
 
 #current-playlist {
-  color: var(--color-green-primary);
+  color: var(--color-green-hover);
   font-style: italic;
   font-weight: 400;
 }
@@ -257,7 +256,6 @@ li.selected {
   }
   .container {
     background-color: var(--container-dark);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
   section {
@@ -293,8 +291,6 @@ li.selected {
 
   li.selected {
     background-color: var(--container-dark);
-    border-color: var(--color-green-primary);
-    border-width: 0.2em;
   }
   .playlist-name,
   .song-title,
