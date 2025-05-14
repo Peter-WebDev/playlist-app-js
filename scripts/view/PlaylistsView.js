@@ -39,24 +39,35 @@ export default class PlaylistsView extends View {
     
     bindSelectPlaylist(handler) {
         this._parentElement.addEventListener('click', event => {
-            const li = event.target.closest('li');
-            if (li && !event.target.closest('button')) {
-                const playlistId = parseInt(li.dataset.id);
-                handler(playlistId);
-            }
+            handleSelection(event);
         });
 
         this._parentElement.addEventListener('keydown', event => {
             if (event.key === 'Enter' || event.key === ' ') {
-                const li = event.target.closest('li');
-                if (li && !event.target.closest('button')) {
-                    const playlistId = parseInt(li.dataset.id);
-                    handler(playlistId);
-                    
-                    event.preventDefault();
-                }             
+                handleSelection(event);
+                event.preventDefault();
             }
-        })
+        });
+
+        const handleSelection = (event) => {
+            const li = event.target.closest('li');
+            if (li && !event.target.closest('button')) {
+                const playlistId = parseInt(li.dataset.id);
+                
+                const focusedElementIndex = Array.from(li.parentElement.children).indexOf(li);
+
+                handler(playlistId);
+
+                setTimeout(() => {
+                    const newElements = Array.from(this._parentElement.querySelectorAll('li'));
+                    if (newElements.length > focusedElementIndex) {
+                        newElements[focusedElementIndex].focus();
+                    }
+                }, 0);
+                
+                event.preventDefault();
+            };
+        };
     }
     
     bindDeletePlaylist(handler) {
