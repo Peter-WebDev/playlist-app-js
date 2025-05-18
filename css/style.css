@@ -52,6 +52,14 @@
   font: inherit;
 }
 
+input:focus-visible,
+button:focus-visible,
+ul:focus-visible,
+li:focus-visible {
+  outline: 3px solid var(--color-green-primary);
+  outline-offset: 2px;
+}
+
 body {
   font-family: system-ui, sans-serif;
   color: var(--text-light);
@@ -117,7 +125,7 @@ h2 {
 
 .playlist {
   overflow-y: auto;
-  max-height: 75svh;
+  max-height: 74svh;
 }
 
 ::-webkit-scrollbar {
@@ -192,10 +200,15 @@ ul {
   list-style-type: none;
 }
 
-li {
-  padding: 0.75em;
+ul,
+li,
+form {
+  padding: 0 0.5em;
   margin-bottom: 0.25em;
   border-radius: 4px;
+}
+
+li {
   background-color: var(--container-light);
   border: 1px solid var(--border-light);
   display: flex;
