@@ -14,7 +14,7 @@
       </header>
       <main class="app-container">
         <section aria-labelledby="playlists-heading" class="playlist-section">
-          <h2 class="heading">My playlists</h2>
+          <h2 id="playlists-heading" class="heading">My playlists</h2>
           <form class="add-playlist">
             <label for="playlist-name" class="sr-only">Playlist name</label>
             <input type="text" id="playlist-name" />
@@ -25,7 +25,7 @@
         <section
           aria-labelledby="playlist-songs-heading"
           class="playlist-songs-section">
-          <h2 class="heading">
+          <h2 id="playlist-songs-heading" class="heading">
             Songs in playlist: <span id="current-playlist">None selected</span>
           </h2>
           <ul id="playlist-songs" class="playlist"></ul>
@@ -33,7 +33,7 @@
         <section
           aria-labelledby="library-songs-heading"
           class="library-section">
-          <h2 class="heading">Available songs</h2>
+          <h2 id="library-songs-heading" class="heading">Available songs</h2>
           <ul id="library-songs" class="playlist"></ul>
         </section>
       </main>
